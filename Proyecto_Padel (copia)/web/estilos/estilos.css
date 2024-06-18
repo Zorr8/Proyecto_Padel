@@ -1,0 +1,195 @@
+/* Animaciones */
+@keyframes caidaDesdeArriba {
+  from {
+      top: -500px; /* Inicia fuera de la pantalla */
+      opacity: 0; /* Inicia transparente */
+  }
+  to {
+      top: 50%; /* Termina en el centro vertical de la pantalla */
+      opacity: 1; /* Termina completamente visible */
+  }
+}
+
+@keyframes deslizarDesdeIzquierda {
+  from {
+      transform: translateX(-100%); /* Inicia moviéndose desde fuera de la pantalla hacia la izquierda */
+      opacity: 0; /* Inicia transparente */
+  }
+  to {
+      transform: translateX(0%) translateY(-0%); /* Termina en su posición original y un poco más arriba */
+      opacity: 1; /* Termina completamente visible */
+  }
+}
+
+@keyframes deslizarDesdeDerecha {
+  from {
+      transform: translateX(100%); /* Inicia moviéndose desde fuera de la pantalla hacia la derecha */
+      opacity: 0; /* Inicia transparente */
+  }
+  to {
+      transform: translateX(-90%); /* Termina en su posición original */
+      opacity: 1; /* Termina completamente visible */
+  }
+}
+
+/* Estilos Generales */
+body {
+  background-image: url("../imagenes/2.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  color: black; /* Texto general en negro */
+}
+
+.contenedor-animacion {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  animation: deslizarDesdeIzquierda 2s ease-out forwards;
+}
+
+.bienvenida {
+  color: white;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.btn-personalizado {
+  background-color: orange !important;
+  color: white !important;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative; /* Asegura que el contenido dentro de container sea relativo */
+}
+
+h1 {
+  white-space: nowrap;
+  margin-top: -70px; /* Desplaza el h1 hacia arriba para solaparse con la tabla */
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  background-color: transparent; /* Fondo transparente para el h1 */
+  padding: 10px 0; /* Espacio interno */
+  z-index: 1; /* Solapa sobre la tabla */
+  animation: deslizarDesdeIzquierda 2s ease-out forwards;
+}
+
+/* Estilos para la Tabla de Administración de Reservas */
+table {
+  width: 100%;
+  max-width: 800px; /* Ancho máximo para mantener la tabla responsive */
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white; /* Fondo blanco para la tabla */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: black; /* Texto negro en la tabla */
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.btn-danger {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
+
+.btn-danger:hover {
+  background-color: #c82333 !important;
+  border-color: #bd2130 !important;
+}
+
+/* Estilos para las tarjetas */
+.card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 250px;
+  width: auto;
+  object-fit: cover;
+}
+
+.card {
+  overflow: hidden;
+  border-radius: 10px;
+  height: 100%;
+}
+
+.card-animate {
+  position: relative;
+  animation: deslizarDesdeIzquierda 2s ease-out forwards;
+  opacity: 0;
+}
+
+.card-animate-derecha {
+  display: flex;
+  animation: deslizarDesdeDerecha 2s ease-out forwards;
+}
+
+/* Estilos para el Calendario (`#diasSemana`, `#diasCalendario`) */
+#diasSemana div,
+#diasCalendario div {
+  display: inline-block;
+  width: 40px;
+  height: 30px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.diaPasado {
+  text-decoration: line-through;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+#diasCalendario {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#diasSemana,
+#diasCalendario {
+  display: flex;
+}
+
+#diasSemana div,
+#diasCalendario div {
+  flex: 1 0 calc(100% / 7);
+  text-align: center;
+}
+
+/* Estilos adicionales para centrar contenido */
+.contenedor-centrado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#mesAnio {
+  margin: 0 20px;
+}
+
+
